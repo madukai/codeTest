@@ -9,7 +9,11 @@ function main() {
 
     echo ($r . "\n\n");
 
-    fzzbzz(15, 0);
+    //fzzbzz(15, 0);
+
+    $a = array(1, 3, 5, 8, 7, 4, 6, 2);
+
+    halfAry($a);
 
     return 0;
 }
@@ -71,6 +75,31 @@ function fzzbzz($n, $i) {
     //increment
     $i++;
     fzzbzz($n, $i);
+}
+
+function halfAry($a = array()) {
+
+    sort($a);
+
+    $size = sizeof($a) - 1;
+
+    $md = intdiv(sizeof($a), 2);
+
+    echo "md: " . $md . " - size: " . $size . "\n\n";
+
+    while($md < $size) {
+
+        echo $a[$md] . " - " . $a[$size] . "\n\n";
+
+        $t = $a[$md];
+        $a[$md] = $a[$size];
+        $a[$size] = $t;
+
+        $md++;
+        $size--;
+    }
+
+    print_r($a);
 }
 
 ?>
