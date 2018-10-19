@@ -4,16 +4,18 @@ main();
 
 function main() {
 
-    $s = "ooxww"; // wwxoo
-    $r = revStr($s, 0, strlen($s)-1);
+    //$s = "ooxww"; // wwxoo
+    //$r = revStr($s, 0, strlen($s)-1);
 
-    echo ($r . "\n\n");
+    //echo ($r . "\n\n");
 
     //fzzbzz(15, 0);
 
-    $a = array(1, 3, 5, 8, 7, 4, 6, 2);
+    //$a = array(1, 3, 5, 8, 7, 4, 6, 2);
 
-    halfAry($a);
+    //halfAry($a);
+
+    isPDrome("racecar");
 
     return 0;
 }
@@ -100,6 +102,38 @@ function halfAry($a = array()) {
     }
 
     print_r($a);
+
+    echo "\n\n";
+}
+
+function isPDrome($str) {
+
+    $sLen = strlen($str);
+    echo("Len: $sLen \n");
+    $i = 0;
+    $j = $sLen - 1;
+
+    $result = true;
+
+    while($i < $sLen) {
+
+        echo ("S: " . $str[$i] . " E: " . $str[$j] . "\n");
+
+        if($str[$i] != $str[$j]){
+            $result = false;
+            break;
+        }
+
+        $i++;
+        $j--;
+    }
+
+    if($result) {
+        echo ("Is pd \n");
+    }
+    else {
+        echo ("Is not pd \n");
+    }
 }
 
 ?>
