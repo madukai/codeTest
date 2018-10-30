@@ -15,7 +15,9 @@ function main() {
 
     //halfAry($a);
 
-    isPDrome("racecar");
+    //isPDrome("racecar");
+
+    printStep(5);
 
     return 0;
 }
@@ -134,6 +136,27 @@ function isPDrome($str) {
     else {
         echo ("Is not pd \n");
     }
+}
+
+function printStep($n) {
+
+    for($i=0; $i < $n; $i++) { // row
+        $m = 1 + $i;
+        for($j=0; $j < $n; $j++) { // col
+            if($j < $m) {
+                echo('#');
+            }
+            else {
+                echo(' ');
+            }
+        }
+        endl();
+    }
+}
+
+// end of line function
+function endl() {
+    echo("\n");
 }
 
 ?>
