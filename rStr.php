@@ -17,7 +17,13 @@ function main() {
 
     //isPDrome("racecar");
 
-    printStep(5);
+    //printStep(5);
+
+    $vd = array(array(2, 4),
+                array(3, 5)
+               );
+
+    Print2D($vd);
 
     return 0;
 }
@@ -141,14 +147,25 @@ function isPDrome($str) {
 function printStep($n) {
 
     for($i=0; $i < $n; $i++) { // row
-        $m = 1 + $i;
+        $step = '';
         for($j=0; $j < $n; $j++) { // col
-            if($j < $m) {
-                echo('#');
+            if($j <= $i) {
+                $step .= '#';
             }
             else {
-                echo(' ');
+                $step .= ' ';
             }
+        }
+        echo($step);
+        endl();
+    }
+}
+
+function Print2D($vd = array(array())) {
+
+    foreach($vd as $v) {
+        foreach($v as $d) {
+            echo("$d ");
         }
         endl();
     }
