@@ -23,9 +23,41 @@ function main() {
                 array(3, 5)
                );
 
-    Print2D($vd);
+    //Print2D($vd);
+
+    $ar = array(1, 2, 5, 4, 2, 8, 1, 6);
+
+    $res = findMinDist($ar, sizeof($ar));
+
+    echo("result: " .$res . "\n\n");
 
     return 0;
+}
+
+function findMinDist($a, $c)
+{
+    $n = $c;
+
+    $ar = array();
+
+    for($i = 0; $i < $c; $i++)
+    {
+        // check if key is present in associative
+        $key = $a[$i];
+        if(array_key_exists($key, $ar)) {
+            $m = abs($i - $ar[$key]);
+            echo "key: $key | i: $i | ar: $ar[$key] | m: $m | n: $n \n\n";
+            // check if smaller
+            if($m < $n) {
+                $n = $m;
+            }
+        }
+        else {
+            $ar = array_push_assoc($ar, $key, $i);
+        }
+    }
+
+    return $n;
 }
 
 function revStr($s, $i, $j) {
@@ -171,6 +203,11 @@ function Print2D($vd = array(array())) {
     }
 }
 
+// push to associative array
+function array_push_assoc($array, $key, $value){
+    $array[$key] = $value;
+    return $array;
+}
 // end of line function
 function endl() {
     echo("\n");
